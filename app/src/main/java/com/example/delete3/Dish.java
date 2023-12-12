@@ -6,13 +6,23 @@ public class Dish {
     private String dishName;
     private String description;
     private int cookingTime;
+    private String step_description;
     private byte[] imageData;
 
-    public Dish(int dishId, String dishName, String description, int cookingTime, byte[] imageData) {
+    public String getStep_description() {
+        return step_description;
+    }
+
+    public void setStep_description(String step_description) {
+        this.step_description = step_description;
+    }
+
+    public Dish(int dishId, String dishName, String description,  int cookingTime,String step_description, byte[] imageData) {
         this.dishId = dishId;
         this.dishName = dishName;
         this.description = description;
         this.cookingTime = cookingTime;
+        this.step_description = step_description;
         this.imageData = imageData;
     }
 

@@ -1,7 +1,9 @@
-<!-- Пример макета для подробной информации -->
+<!-- res/layout/activity_details.xml -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:name=".DetailsActivity">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -20,6 +22,28 @@
         android:layout_below="@id/textViewTitle"
         android:layout_marginTop="8dp"/>
 
-    <!-- Добавьте другие виджеты по необходимости -->
+    <TextView
+        android:id="@+id/textViewCookingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cooking Time: "
+        android:layout_below="@id/textViewDescription"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewStepDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step Description"
+        android:layout_below="@id/textViewCookingTime"
+        android:layout_marginTop="8dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewDish"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/textViewStepDescription"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"/>
 
 </RelativeLayout>
