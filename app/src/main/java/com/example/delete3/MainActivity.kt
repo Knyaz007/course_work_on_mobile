@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("description", selectedDish.description)
             intent.putExtra("dishid", (selectedDish.dishId).toString())
             intent.putExtra("cookingTime", selectedDish.cookingTime)
+
             // Добавьте другие данные по необходимости
 
             // Запустите новую активность
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("Range")
     private fun loadDishes() {
         val db = dbHelper.readableDatabase
-        val cursor: Cursor = db.rawQuery("SELECT * FROM Dishes2", null)
+        val cursor: Cursor = db.rawQuery("SELECT * FROM Dishes3", null)
 
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast) {
@@ -65,8 +66,9 @@ class MainActivity : AppCompatActivity() {
                 val cookingTime = cursor.getInt(cursor.getColumnIndex("cookingTime"))
                 val imageData = cursor.getBlob(cursor.getColumnIndex("image_data"))
                 val step_description = cursor.getString(cursor.getColumnIndex("step_description"))
+                val ingredients = cursor.getString(cursor.getColumnIndex("Ingredients"))
 
-                val dish = Dish(dishId.toInt(), dishName, description, cookingTime, step_description, imageData)
+                val dish = Dish(dishId.toInt(), dishName, description, cookingTime, step_description,ingredients, imageData)
                 dishList.add(dish)
 
                 cursor.moveToNext()

@@ -53,27 +53,35 @@ class DetailsActivity : AppCompatActivity() {
     private fun loadDish() {
         val db = dbHelper.readableDatabase
         val id = arrayOf(dishId.toString())
-        val cursor: Cursor = db.rawQuery("SELECT * FROM Dishes2 WHERE dish_id = ?", id)
+        val cursor: Cursor = db.rawQuery("SELECT * FROM Dishes3 WHERE dish_id = ?", id)
 
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast) {
                 val dishId = cursor.getLong(cursor.getColumnIndex("dish_id"))
                 val dishName = cursor.getString(cursor.getColumnIndex("dish_name"))
                 val description = cursor.getString(cursor.getColumnIndex("description"))
-                val step_description = cursor.getString(cursor.getColumnIndex("step_description"))
                 val cookingTime = cursor.getInt(cursor.getColumnIndex("cookingTime"))
                 val imageData = cursor.getBlob(cursor.getColumnIndex("image_data"))
+                val step_description = cursor.getString(cursor.getColumnIndex("step_description"))
+                val ingredients = cursor.getString(cursor.getColumnIndex("Ingredients"))
 
-                val dish = Dish(dishId.toInt(), dishName, description, cookingTime, step_description, imageData)
+                val dish = Dish(dishId.toInt(), dishName, description, cookingTime, step_description,ingredients, imageData)
                 dishList.add(dish)
+
+                cursor.moveToNext()
+
 
                 // Отобразите данные в представлениях
                 val textViewCookingTime: TextView = findViewById(R.id.textViewCookingTime)
                 val textViewStepDescription: TextView = findViewById(R.id.textViewStepDescription)
+
+                val textViewIngredients: TextView = findViewById(R.id.textViewIngredients)
                 val imageViewDish: ImageView = findViewById(R.id.imageViewDish)
 
                 textViewCookingTime.text = "Время готовки: $cookingTime минут"
                 textViewStepDescription.text = step_description
+                textViewIngredients.text = ingredients
+
 
                 // Отобразите изображение, если оно есть
                 if (imageData != null && imageData.isNotEmpty()) {

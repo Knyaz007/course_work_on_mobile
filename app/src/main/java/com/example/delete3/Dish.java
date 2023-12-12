@@ -7,6 +7,7 @@ public class Dish {
     private String description;
     private int cookingTime;
     private String step_description;
+    private String ingredients;
     private byte[] imageData;
 
     public String getStep_description() {
@@ -17,12 +18,21 @@ public class Dish {
         this.step_description = step_description;
     }
 
-    public Dish(int dishId, String dishName, String description,  int cookingTime,String step_description, byte[] imageData) {
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Dish(int dishId, String dishName, String description, int cookingTime, String step_description, String ingredients, byte[] imageData) {
         this.dishId = dishId;
         this.dishName = dishName;
         this.description = description;
         this.cookingTime = cookingTime;
         this.step_description = step_description;
+        this.ingredients = ingredients;
         this.imageData = imageData;
     }
 
