@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_meat"
+            android:title="Мясо"/>
+        <item
+            android:id="@+id/nav_fish"
+            android:title="Рыба"/>
+        <item
+            android:id="@+id/nav_poultry"
+            android:title="Птица"/>
+        <item
+            android:id="@+id/nav_vegetables"
+            android:title="Овощи"/>
+        <item
+            android:id="@+id/nav_salads"
+            android:title="Салаты"/>
+        <item
+            android:id="@+id/nav_soup"
+            android:title="Супы"/>
+        <item
+            android:id="@+id/nav_pastries"
+            android:title="Выпечка"/>
+        <item
+            android:id="@+id/nav_desserts"
+            android:title="Десерты"/>
+    </group>
+</menu>
